@@ -13,7 +13,7 @@ export default function Square({ black, children }: Props): JSX.Element {
       backgroundColor: fill,
       color: stroke,
       width: '100%',
-      minHeight: '100vh',
+      minHeight: '100%',
     }}>
       {children}
     </div>
