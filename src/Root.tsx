@@ -4,11 +4,15 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import Board from './pages/Board';
 
-export default function Root(): JSX.Element {
+interface Props {
+  knightPosition: number[];
+}
+
+export default function Root(props: Props): JSX.Element {
   return (
     <>
       <CssBaseline />
-      <Board knightPosition={[0, 0]} />
+      <Board knightPosition={props.knightPosition} />
     </>
   );
 }
