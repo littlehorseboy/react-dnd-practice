@@ -35,15 +35,11 @@ interface Props {
 export default function Board(props: Props): JSX.Element {
   const classes = useStyles();
 
-  const squares = [];
-
-  for (let i = 0; i < 64; i += 1) {
-    squares.push(renderSquare(i, props.knightPosition));
-  }
-
   return (
     <div className={classes.root}>
-      {squares}
+      {new Array(64).fill(null).map((n, index): JSX.Element => (
+        renderSquare(index, props.knightPosition)
+      ))}
     </div>
   );
 }

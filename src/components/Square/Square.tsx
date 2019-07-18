@@ -1,4 +1,21 @@
 import React, { ReactNode } from 'react';
+import classNames from 'classnames';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    width: '100%',
+    minHeight: '100%',
+  },
+  black: {
+    backgroundColor: 'black',
+    color: 'white',
+  },
+  white: {
+    backgroundColor: 'white',
+    color: 'black',
+  },
+});
 
 interface Props {
   black: boolean;
@@ -6,15 +23,14 @@ interface Props {
 }
 
 export default function Square({ black, children }: Props): JSX.Element {
-  const fill = black ? 'black' : 'white';
-  const stroke = black ? 'white' : 'black';
+  const classes = useStyles();
+
   return (
-    <div style={{
-      backgroundColor: fill,
-      color: stroke,
-      width: '100%',
-      minHeight: '100%',
-    }}>
+    <div className={classNames(
+      classes.root,
+      { [classes.black]: black },
+      { [classes.white]: !black },
+    )}>
       {children}
     </div>
   );
