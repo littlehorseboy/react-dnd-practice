@@ -6,6 +6,10 @@ const useStyles = makeStyles({
   root: {
     width: '100%',
     minHeight: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: '3vw',
   },
   black: {
     backgroundColor: 'black',

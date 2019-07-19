@@ -2,10 +2,12 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Knight from '../components/Knight/Knight';
 import Square from '../components/Square/Square';
-import { moveKnight } from '../Game';
+import { moveKnight, canMoveKnight } from '../Game';
 
 const handleSquareClick = (toX: number, toY: number): void => {
-  moveKnight(toX, toY);
+  if (canMoveKnight(toX, toY)) {
+    moveKnight(toX, toY);
+  }
 };
 
 function renderSquare(i: number, [knightX, knightY]: number[]): JSX.Element {
